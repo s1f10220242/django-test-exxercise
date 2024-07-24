@@ -6,6 +6,7 @@
     <title>To Do Application</title>
     <meta charset="UTF-8">
     <meta name="author" content="INIAD">
+    <link href="{% static 'css/edit.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -13,16 +14,18 @@
     <p>You can edit tasks from the following form.</p>
     <form action="{% url 'update' task.id%}" method="post">
       {% csrf_token %}
-      <div>
-        <label for="titleInput">Title</label><br>
-        <input id="titleInput" name="title" type="text" placeholder="Input title" value="{{ task.title }}">
-      </div>
-      <div>
-        <label for="dueInput">Due at:</label><br>
-        <input id="dueInput" name="due_at" type="datetime-local" value="{{ task.due_at |date:"Y-m-d H:i" }}">
-      </div>
-      <div>
-        <button type="submit">Submit</button>
+      <div class="container">
+        <div class="child">
+          <label for="titleInput">Title</label><br>
+          <input id="titleInput" name="title" type="text" placeholder="Input title" value="{{ task.title }}">
+        </div>
+        <div class="child">
+          <label for="dueInput">Due at:</label><br>
+          <input id="dueInput" name="due_at" type="datetime-local" value="{{ task.due_at |date:"Y-m-d H:i" }}">
+        </div>
+        <div class="child">
+          <button type="submit">Submit</button>
+        </div>
       </div>
     </form>
     <br>
